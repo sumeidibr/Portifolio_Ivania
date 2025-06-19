@@ -127,6 +127,61 @@ body {
   font-family: var(--font-primary);
   color: var(--color-body);
   font-weight: var(--p-regular); }
+
+
+
+.seccao1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 827px;
+    background-image: url(background.png);
+    background-color: grey;
+}
+
+
+.divisao1{
+    color: rgb(255, 255, 255);
+    font-size: 17px; 
+   
+}
+
+.divisao1 > p{
+    margin: 7px;
+    color: rgb(17, 28, 126);
+    font-family: 'sarala', sans-serif;
+    font-size: 15pt;
+}
+
+.divisao1 > h2{
+    color: white;
+    font-size: 22pt;
+
+}
+.divisao2{
+    margin-top: 30px;
+}
+input#botao{
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to left, var(--cor02), var(--cor01));
+    border-radius: 6px;
+    padding: 13px;
+    width: 120px;
+    border-style: none;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.199);
+    margin-left: 20px;
+    color: white;
+    font-size: 11pt;
+    font-family: 'righteous', sans-serif;
+    
+}
+               
+
+
+
+
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     body {
       overflow: hidden; } }

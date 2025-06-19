@@ -19,6 +19,34 @@
     <link rel="stylesheet" href="assets/css/plugins/feature.css">
     <!-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <style> 
+         /* Reset e tipografia */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e1e; color: #fff; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+    /* Slider Area */
+    .rn-slider-area { position: relative; padding: 100px 0; background: #121212; }
+    .slider-style-1 .content .subtitle { color: #ff8c42; font-size: 1rem; display: block; margin-bottom: 10px; }
+    .slider-style-1 .content .title { font-size: 2.5rem; color: #fff; margin-bottom: 20px; line-height: 1.2; }
+    .cd-words-wrapper { display: inline-block; position: relative; }
+    .cd-words-wrapper b { position: absolute; top: 0; left: 0; opacity: 0; animation: rotateText 8s linear infinite 0s; }
+    .cd-words-wrapper b.is-visible { position: relative; opacity: 1; }
+    @keyframes rotateText {
+      0%,33% { opacity: 1; }
+      34%,100% { opacity: 0; }
+    }
+    .description { color: #bbb; line-height: 1.6; margin-bottom: 20px; }
+    .thumbnail { text-align: center; }
+    .thumbnail img { width: 350px; height: auto; border-radius: 8px; }
+
+
+    
+    </style>
 </head>
 
 <body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
@@ -40,7 +68,7 @@
             <!-- Start Header Center -->
             <div class="col-lg-10 col-6">
                 <div class="header-center">
-                    <nav id="sideNav" class="mainmenu-nav navbar-example2 d-none d-xl-block">
+                    <nav id="sideNav" class="mainmenu-nav navbar-example2 d-none d-xl-block bg-black">
                         <!-- Start Mainmanu Nav -->
                         <ul class="primary-menu nav nav-pills">
                             <li class="nav-item"><a class="nav-link smoth-animation active" href="#home">Home</a></li>
@@ -132,7 +160,21 @@
     <main class="main-page-wrapper">
 
 
-        
+          <section class="seccao1">
+                <div class="divisao1">
+                    <p>Ola!  Aqui, </p>
+                    <h2>Sumeid Ibraimo</h2>
+                    <p>Designer de UI/UX &</br> Desenvolvedor Web</p>
+                    <a href="https://wa.me/message/IWG4Q53KEZ4WO1" id="botao-1"><input type="button" id="botao" value="Contacte Me"  class="bot"></a>
+                </div>
+                <div class="divisao2">
+                   <picture>
+                        <source media="(max-width: 500px)" srcset="sumeid.png">
+                        <img src="sumeid-grande.png" alt="Logotipo">
+                        </picture>
+
+                </div>
+            </section>
         
         <!-- Start Slider Area -->
         <div id="home" class="rn-slider-area">
@@ -518,108 +560,13 @@
 
                                                         </div>
                                                     </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List 
-                                                    <!--    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4> ICS</h4>
-                                                                    <span>502 Model College (2011 - 2013)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>4.50/5</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <!-- <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Tips For Personal Portfolio</h4>
-                                                                    <span>University of Studies (1997 - 2001)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>4.80/5</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description"> If you are going to use a passage.
-                                                                Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div> -->
-                                                    <!-- End Single List  -->
+                                                    
 
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- End Skill List Area  -->
 
-                                        <!-- Start Skill List Area 2nd  
-                                        <div class="col-lg-6 col-md-12 col-12 mt_md--60 mt_sm--60">
-                                            <div class="content">
-                                                <span class="subtitle">2016 - 2021</span>
-                                                <h4 class="maintitle">Job Experience</h4>
-                                                <div class="experience-list">
-
-                                                    
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>SENIOR UI/UX DESIGNER</h4>
-                                                                    <span>AKSA SDS (2020 - 2021)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>4.90/5</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">Gather and evaluate user requirements in collaboration with product managers and engineers.Illustrate design ideas using storyboards, process flows and sitemaps.Design graphic user interface elements, like menus, tabs and widgets.Build page navigation buttons and search fields.Develop UI mockups and prototypes that clearly illustrate how sites function and look like.Create original graphic designs (e.g. images, sketches and tables).Prepare and present rough drafts to internal teams and key stakeholders.Identify and troubleshoot UX problems (e.g. responsiveness).</p>
-                                                        </div>
-                                                    </div>
-                                                   
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>SENIOR UI/UX DESIGNER</h4>
-                                                                    <span>Job at Arkhitech (2018 - 2021)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>5/5</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">I was responsible the look and feel of a physical or digital product. This can include everything from packaging to web design. I work closely with interaction designers and UI/UX copywriters to create a user experience that is aesthetically pleasing, user-friendly, and efficient. My job was to assist UI/UX designers with developing high-fidelity prototypes towards the end of the design phase.visual styling of an app or website. Think things like how icons are designed, how they’re arranged on the page, and how they relate to each other. Design elements such as font choice, color scheme, graphics, buttons, and menu styling are all elements of interface design.</p>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>FRONTEND DEVELOPER</h4>
-                                                                    <span>DEVTREST PVT LTD (2016 -
-                                                                2018)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>5.00/5</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">My responsibility was to Optimizie the user experience.Using HTML, JavaScript and CSS to bring concepts to life.Developing and maintaining the user interface.Implementing design on mobile websites.Creating tools that improve site interaction regardless of the browser.Managing software workflow.Following SEO best practices.Fixing bugs and testing for usability.Ensure the technical feasibility of UI/UX designs..</p>
-                                                        </div>
-                                                    </div>
-                                                    
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                         End Skill List Area  -->
                                     </div>
                                 </div>
                             </div>
