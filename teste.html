@@ -5,837 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio | UI & UX Designer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reset e tipografia */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        html { 
-            scroll-behavior: smooth; 
-        }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #1e1e1e; 
-            color: #fff; 
-            line-height: 1.6;
-        }
-        a { 
-            text-decoration: none; 
-            color: inherit; 
-        }
-        img { 
-            display: block; 
-            max-width: 100%; 
-        }
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-        /* Container geral */
-        .container { 
-            width: 90%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 15px;
-        }
-
-        /* Header e navegação */
-        header { 
-            padding: 20px 0; 
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(30, 30, 30, 0.95);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-        }
-        .navbar { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
-        .logo { 
-            font-size: 1.5rem; 
-            font-weight: bold; 
-            letter-spacing: 2px; 
-        }
-        .nav-links { 
-            list-style: none; 
-            display: flex; 
-            gap: 20px; 
-        }
-        .nav-links li a { 
-            padding: 8px 12px; 
-            transition: all 0.3s; 
-            border-radius: 4px;
-        }
-        .nav-links li a:hover { 
-            background: #ff8c42; 
-            color: #000;
-        }
-        .btn-cv { 
-            background: #ff8c42; 
-            color: #fff; 
-            padding: 8px 16px; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            font-weight: 600;
-        }
-        .btn-cv:hover { 
-            opacity: 0.8; 
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            padding: 160px 0 80px;
-            gap: 40px;
-        }
-        .hero-info { 
-            max-width: 50%; 
-        }
-        .hero-info h2 { 
-            font-size: 1.8rem; 
-            color: #ff8c42; 
-            margin-bottom: 10px; 
-            font-weight: 600;
-        }
-        .hero-info h1 { 
-            font-size: 2.8rem; 
-            margin-bottom: 20px; 
-            line-height: 1.2;
-            font-weight: 700;
-        }
-        .hero-info p { 
-            line-height: 1.6; 
-            margin-bottom: 30px; 
-            color: #ddd;
-            font-size: 1.1rem;
-        }
-        .btn-hire { 
-            background: #ff8c42; 
-            color: #fff; 
-            padding: 14px 28px; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-block;
-        }
-        .btn-hire:hover { 
-            opacity: 0.8; 
-            transform: translateY(-2px);
-        }
-        .hero-img { 
-            border-radius: 50%; 
-            width: 300px; 
-            height: 300px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 5px solid #ff8c42;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-            position: relative;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .section-title p {
-            color: #bbb;
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        .about-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 60px; 
-            align-items: center; 
-        }
-        .about-details { 
-            list-style: none; 
-            margin: 20px 0; 
-            padding: 0; 
-        }
-        .about-details li { 
-            margin-bottom: 15px; 
-            display: flex; 
-            align-items: flex-start; 
-            font-size: 1.05rem;
-        }
-        .about-details li i { 
-            margin-right: 12px; 
-            color: #ff8c42; 
-            min-width: 24px;
-            font-size: 1.1rem;
-        }
-        .about-buttons { 
-            margin-top: 30px; 
-            display: flex;
-            gap: 15px;
-        }
-        .btn-contact,
-        .btn-cv {
-          padding: 12px 24px;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-weight: 600;
-          transition: all 0.3s;
-          font-size: 1rem;
-        }
-        .btn-contact { 
-            background: #ff8c42; 
-            color: #000; 
-        }
-        .btn-cv { 
-            background: transparent; 
-            border: 2px solid #ff8c42; 
-            color: #ff8c42; 
-        }
-        .btn-contact:hover,
-        .btn-cv:hover {
-          opacity: 0.8;
-          transform: translateY(-2px);
-        }
-        .about-img {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Services Section */
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; 
-        }
-        .service-card { 
-            background: #2a2a2a; 
-            padding: 30px; 
-            border-radius: 12px; 
-            text-align: center; 
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        .service-card .icon { 
-            font-size: 3.5rem; 
-            margin-bottom: 20px; 
-            color: #ff8c42;
-        }
-        .service-card h3 { 
-            margin-bottom: 15px; 
-            font-size: 1.4rem;
-        }
-        .service-card p { 
-            font-size: 1rem; 
-            line-height: 1.5; 
-            color: #ccc;
-        }
-
-        /* Projects Section */
-        .filter-buttons {
-          text-align: center;
-          margin-bottom: 40px;
-        }
-        .filter-buttons button {
-          margin: 0 8px 10px;
-          padding: 10px 24px;
-          border: none;
-          border-radius: 30px;
-          cursor: pointer;
-          background: #2a2a2a;
-          color: #fff;
-          transition: all 0.3s;
-          font-weight: 600;
-          font-size: 0.95rem;
-        }
-        .filter-buttons button.active,
-        .filter-buttons button:hover {
-          background: #ff8c42;
-          color: #000;
-        }
-
-        /* Grid e cards */
-        .projects-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 30px;
-        }
-        .project-card {
-          background: #2a2a2a;
-          border-radius: 12px;
-          overflow: hidden;
-          display: none; /* Mantendo funcionalidade original */
-          transition: all 0.3s;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .project-card.active {
-          display: block; /* Mantendo funcionalidade original */
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        .project-card img {
-          width: 100%;
-          display: block;
-          transition: transform 0.5s;
-          height: 220px;
-          object-fit: cover;
-        }
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-        .project-card .info {
-          padding: 20px;
-        }
-        .project-card .info h3 {
-          font-size: 1.2rem;
-          margin-bottom: 8px;
-        }
-        .project-card .info span {
-          font-size: 0.9rem;
-          color: #ff8c42;
-          font-weight: 600;
-        }
-
-        /* Testimonials Section */
-        #testimonials { 
-            padding: 80px 0;
-            background: #121212;
-            position: relative;
-            overflow: hidden;
-        }
-        .testimonials-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .testimonial-card { 
-            background: #2a2a2a; 
-            padding: 40px; 
-            border-radius: 12px; 
-            text-align: center; 
-            margin: 0 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .testimonial-card img { 
-            width: 90px; 
-            height: 90px; 
-            border-radius: 50%; 
-            margin: 0 auto 20px; 
-            border: 3px solid #ff8c42;
-            object-fit: cover;
-        }
-        .testimonial-card p { 
-            font-size: 1.1rem; 
-            line-height: 1.6; 
-            margin-bottom: 20px; 
-            font-style: italic;
-            color: #ddd;
-        }
-        .testimonial-card .author { 
-            font-weight: bold; 
-            color: #ff8c42;
-            font-size: 1.1rem;
-        }
-        .dots { 
-            text-align: center; 
-            margin-top: 40px; 
-        }
-        .dots span { 
-            display: inline-block; 
-            width: 12px; 
-            height: 12px; 
-            margin: 0 7px; 
-            background: #2a2a2a; 
-            border-radius: 50%; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-        }
-        .dots span.active { 
-            background: #ff8c42; 
-            transform: scale(1.2);
-        }
-
-        /* Resume Section */
-        .rn-resume-area {
-            padding: 80px 0;
-        }
-        .rn-nav-list {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            list-style: none;
-        }
-        .rn-nav-list .nav-link {
-            padding: 12px 28px;
-            border: none;
-            border-radius: 30px;
-            background: #2a2a2a;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        .rn-nav-list .nav-link.active {
-            background: #ff8c42;
-            color: #000;
-        }
-        .rn-nav-content {
-            background: #2a2a2a;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .resume-single-list {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #444;
-        }
-        .resume-single-list:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .resume-single-list .heading .title h4 {
-            font-size: 1.2rem;
-            color: #ff8c42;
-            margin-bottom: 6px;
-        }
-        .resume-single-list .heading .title span {
-            color: #bbb;
-            font-size: 0.95rem;
-        }
-        .progress-wrapper {
-            margin-bottom: 20px;
-        }
-        .progress-charts {
-            margin-bottom: 20px;
-        }
-        .progress-charts .heading-h6 {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        .progress {
-            background: #1a1a1a;
-            border-radius: 4px;
-            overflow: hidden;
-            height: 10px;
-        }
-        .progress-bar {
-            background: #ff8c42;
-            display: block;
-            height: 100%;
-            position: relative;
-        }
-        .progress-bar::after {
-            content: attr(data-progress);
-            position: absolute;
-            right: 10px;
-            top: -25px;
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Pricing Tabs */
-        .pricing-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        .pricing-tabs li a {
-            display: block;
-            padding: 12px 28px;
-            background: #2a2a2a;
-            color: #fff;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-        .pricing-tabs li a.active {
-            background: #ff8c42;
-            color: #000;
-        }
-        .rn-pricing { 
-            background: #2a2a2a; 
-            padding: 40px; 
-            border-radius: 12px; 
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .rn-pricing h2 { 
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            color: #ff8c42;
-        }
-        .rn-pricing p {
-            color: #ddd;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .tab-content .tab-pane {
-  display: none;
-}
-
-.tab-content .tab-pane.active {
-  display: block;
-}
-
-
-        /* Contact Section */
-        .contact-form { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 15px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .contact-form input[type="email"] { 
-            padding: 16px 20px; 
-            width: 70%; 
-            max-width: 450px; 
-            border-radius: 4px; 
-            border: none; 
-            background: #2a2a2a;
-            color: #fff;
-            font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        .contact-form button { 
-            padding: 16px 32px; 
-            border: none; 
-            border-radius: 4px; 
-            background: #ff8c42; 
-            color: #fff; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        .contact-form button:hover { 
-            opacity: 0.8; 
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer { 
-            padding: 60px 0 30px; 
-            background: #121212; 
-            text-align: center; 
-            font-size: 0.9rem; 
-            color: #aaa; 
-        }
-        .footer-nav { 
-            margin-bottom: 20px; 
-        }
-        .footer-nav a { 
-            margin: 0 10px; 
-            font-size: 1rem; 
-            color: #fff; 
-            transition: color 0.3s; 
-            font-weight: 500;
-        }
-        .footer-nav a:hover { 
-            color: #ff8c42; 
-        }
-        .social-icons { 
-            margin-bottom: 25px; 
-        }
-        .social-icons a { 
-            margin: 0 15px; 
-            font-size: 1.4rem; 
-            color: #fff; 
-            transition: color 0.3s; 
-            display: inline-block;
-        }
-        .social-icons a:hover { 
-            color: #ff8c42; 
-            transform: translateY(-3px);
-        }
-
-        /* Responsividade */
-        @media(max-width: 992px) {
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 140px;
-            }
-            .hero-info, 
-            .hero-img { 
-                max-width: 100%; 
-            }
-            .hero-info {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            .about-details li {
-                justify-content: center;
-            }
-            .about-buttons {
-                justify-content: center;
-            }
-            .rn-nav-list {
-                gap: 10px;
-            }
-            .rn-nav-list .nav-link {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            .contact-form {
-                flex-direction: column;
-                width: 100%;
-            }
-            .contact-form input[type="email"] {
-                width: 100%;
-            }
-        }
-
-        @media(max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero-info h1 {
-                font-size: 2.2rem;
-            }
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            .filter-buttons button {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-            .testimonial-card {
-                padding: 30px 20px;
-            }
-            .rn-pricing {
-                padding: 30px 20px;
-            }
-        }
-
-        @media(max-width: 480px) {
-            .hero-img {
-                width: 250px;
-                height: 250px;
-            }
-            .hero-info h1 {
-                font-size: 2rem;
-            }
-            .hero-info h2 {
-                font-size: 1.5rem;
-            }
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            .about-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn-contact, .btn-cv {
-                width: 100%;
-                max-width: 250px;
-            }
-        }
-    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="tsparticles">  </div>
 
     <!-- Header -->
     <header>
         <div class="container navbar">
-            <div class="logo">FAWZIU<span style="color:#ff8c42">.</span></div>
+            <div class="logo">IVÂNIA<span style="color:#ff8c42">.</span></div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Sobre mim</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#projects">Projectos</a></li>
+                <li><a href="#resume">Resumo</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
             <button class="btn-cv">Download CV</button>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="container hero">
-        <div class="hero-info">
-            <h2>Hi I am <span style="color:#ff8c42">Fawzi Sayed</span></h2>
-            <h1>UI & UX Designer</h1>
-            <p>Specializing in creating intuitive and engaging user experiences that drive user satisfaction and business growth. With a passion for both aesthetics and functionality, I transform complex problems into elegant solutions.</p>
-            <button class="btn-hire">Hire Me</button>
-        </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Foto de Perfil" />
-        </div>
-    </section>
+    <!-- Hero --> 
+<section class="container hero">
+    <div class="hero-info">
+        <h2>Hi I am <span style="color:#ff8c42">Ivânia Perce Chirindza</span></h2>
+        <h1>Estudante de Licenciatura em Informática</h1>
+        <p>Estudante finalista do curso de Licenciatura em Informática, com experiência prática no desenvolvimento web e forte interesse em administração de bases de dados.</p>
+        <button class="btn-hire">Me Contrate</button>
+    </div>
+    <div class="hero-img">
+        <img src="ivania.jpg" alt="Foto de Perfil" />
+    </div>
+</section>
 
-    <!-- About -->
-    <section id="about" class="container">
+<!-- About -->
+<section id="about" class="container">
+  <div class="section-title">
+    <h2>Sobre Mim</h2>
+    <p>Conheça minha trajetória, paixões e competências profissionais</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-info">
+      <p>Olá! Sou <strong>Ivânia Perce Chirindza</strong>, finalista do curso de Licenciatura em Informática na Universidade Eduardo Mondlane, em Maputo.</p>
+      <p>Atualmente atuo como <strong>monitora universitária</strong> na disciplina de Tecnologias de Comunicação e Informação (TCI) e <strong>estagiária em desenvolvimento web</strong> na Explicador Inc.</p>
+      <p>Tenho grande interesse em <strong>administração de bases de dados</strong> e <strong>desenvolvimento backend com Laravel</strong>. Possuo experiência prática em linguagens como <strong>PHP, Java e Node.js</strong>, além de frameworks como <strong>React, Vue.js e Quasar</strong>.</p>
+
+      <ul class="about-details">
+        <li><i class="fas fa-graduation-cap"></i><strong>Formação:</strong> Licenciatura em Informática (conclusão prevista: 2025)</li>
+        <li><i class="fas fa-briefcase"></i><strong>Experiência:</strong> Estagiária em Desenvolvimento Web e Monitora Universitária</li>
+        <li><i class="fas fa-map-marker-alt"></i><strong>Localização:</strong> Maputo, Moçambique</li>
+        <li><i class="fas fa-envelope"></i><strong>Email:</strong> ivaniapercechirindza@email.com</li>
+        <li><i class="fas fa-phone"></i><strong>Telefone:</strong> +258 833 858 115</li>
+      </ul>
+
+      <div class="about-buttons">
+        <button class="btn-contact">Contate-me</button>
+        <button class="btn-cv">Download CV</button>
+      </div>
+    </div>
+
+    <div class="about-img">
+      <img src="ivania.jpg" alt="Foto de Ivânia Perce Chirindza" />
+    </div>
+  </div>
+</section>
+
+
+<!-- Services -->
+<!-- Services -->
+<section id="services">
+    <div class="container">
         <div class="section-title">
-            <h2>Sobre Mim</h2>
-            <p>Conheça mais sobre minha trajetória profissional e habilidades</p>
+            <h2>Serviços</h2>
+            <p>Áreas de atuação e competências profissionais</p>
         </div>
-        <div class="about-grid">
-            <div>
-                <p>Meu nome é <strong>Loyd David Mussimwa</strong>, tenho 30 anos e sou um desenvolvedor Full Stack apaixonado por criar soluções digitais que fazem a diferença.</p>
-                <p>Formado em Engenharia de Construção Civil, descobri minha verdadeira paixão pela programação e desenvolvimento de sistemas. Atuo como freelancer há 2 anos, com mais de 21 projetos entregues com excelência.</p>
-                <p>Sou o criador da <strong>ArquiTech Soluctions Lda</strong>, empresa especializada em desenvolvimento web e mobile. Minha abordagem combina conhecimento técnico com visão de negócios para entregar resultados que superam expectativas.</p>
-                <ul class="about-details">
-                    <li><i class="fas fa-graduation-cap"></i> <strong>Formação:</strong> Engenharia de Construção Civil</li>
-                    <li><i class="fas fa-briefcase"></i> <strong>Experiência:</strong> 2+ anos como Desenvolvedor Freelancer</li>
-                    <li><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> Cumbeza, Estrada Circular, casa n° 435</li>
-                    <li><i class="fas fa-envelope"></i> <strong>Email:</strong> comercial@loyddavyd.com.br</li>
-                </ul>
-                <div class="about-buttons">
-                    <button class="btn-contact">Contate-me</button>
-                    <button class="btn-cv">Download CV</button>
+        <div class="services-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+            <div class="service-card animate-down" style="flex: 1 1 250px; max-width: 300px; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(239, 165, 55, 0.371); text-align: center; background-color: #f9f9f9;  color: rgb(95, 63, 4)">
+                <div class="icon" style="font-size: 2.5rem; color: #ff8c42; margin-bottom: 1rem;">
+                    <i class="fas fa-code"></i>
                 </div>
+                <h3>Desenvolvedora</h3>
+                <p style="color: rgb(100, 99, 99);">Criação e manutenção de sistemas e aplicações eficientes.</p>
             </div>
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Foto de Loyd David Mussimwa" />
-            </div>
-        </div>
-    </section>
 
-    <!-- Services -->
-    <section id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Services</h2>
-                <p>Serviços especializados para impulsionar seu negócio digital</p>
+            <div class="service-card animate-up" style="flex: 1 1 250px; max-width: 300px; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(239, 165, 55, 0.371); text-align: center; background-color: #f9f9f9; color: rgb(95, 63, 4);">
+                <div class="icon" style="font-size: 2.5rem; color: #ff8c42; margin-bottom: 1rem;">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Professora</h3>
+                <p style="color: rgb(100, 99, 99);">Atuação em ensino e monitoria para formação de novos talentos.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-paint-brush"></i></div>
-                    <h3>UI/UX Design</h3>
-                    <p>Criação de interfaces intuitivas e experiências de usuário excepcionais que aumentam a satisfação e engajamento.</p>
+
+            <div class="service-card animate-down" style="flex: 1 1 250px; max-width: 300px; padding: 1.5rem; border-radius: 12px; box-shadow:  0 6px 18px rgba(239, 165, 55, 0.371);text-align: center; background-color: #f9f9f9;  color: rgb(95, 63, 4)">
+                <div class="icon" style="font-size: 2.5rem; color: #ff8c42; margin-bottom: 1rem;">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Web Development</h3>
-                    <p>Desenvolvimento de websites responsivos, otimizados e de alto desempenho com as últimas tecnologias.</p>
+                <h3>Consultoria em Análise e Desenho de Sistemas</h3>
+                <p style="color: rgb(100, 99, 99);">Orientação técnica para projetos e modelagem de sistemas.</p>
+            </div>
+
+            <div class="service-card animate-up" style="flex: 1 1 250px; max-width: 300px; padding: 1.5rem; border-radius: 12px; box-shadow:  0 6px 18px rgba(239, 165, 55, 0.371);text-align: center; background-color: #f9f9f9;  color: rgb(95, 63, 4)">
+                <div class="icon" style="font-size: 2.5rem; color: #ff8c42; margin-bottom: 1rem;">
+                    <i class="fas fa-database"></i>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>App Design</h3>
-                    <p>Design de aplicativos móveis que combinam estética impressionante com funcionalidade intuitiva.</p>
+                <h3>Administração de BD</h3>
+                <p style="color: rgb(100, 99, 99);">Conhecimentos básicos para gerenciar bases de dados.</p>
+            </div>
+
+            <div class="service-card animate-down" style="flex: 1 1 250px; max-width: 300px; padding: 1.5rem; border-radius: 12px; box-shadow:  0 6px 18px rgba(239, 165, 55, 0.371);text-align: center; background-color: #f9f9f9;  color: rgb(95, 63, 4)">
+                <div class="icon" style="font-size: 2.5rem; color: #ff8c42; margin-bottom: 1rem;">
+                    <i class="fas fa-vials"></i>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-palette"></i></div>
-                    <h3>Graphic Design</h3>
-                    <p>Soluções visuais criativas que comunicam sua mensagem e fortalecem sua identidade de marca.</p>
-                </div>
+                <h3>Testadora de Sistemas</h3>
+                <p style="color: rgb(100, 99, 99);">Realização de testes para garantir qualidade e eficiência.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Projects</h2>
-                <p>Uma seleção dos meus trabalhos mais recentes e impactantes</p>
-            </div>
-            <div class="filter-buttons">
-                <button class="active" data-filter="all">All</button>
-                <button data-filter="uiux">UI/UX</button>
-                <button data-filter="web">Web Design</button>
-                <button data-filter="app">App Design</button>
-                <button data-filter="graphic">Graphic Design</button>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-category="web">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Project 1">
-                    <div class="info">
-                        <span>Web Design</span>
-                        <h3>AirCalling Landing Page Design</h3>
-                    </div>
-                </div>
-                <div class="project-card" data-category="web">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 2">
-                    <div class="info">
-                        <span>Web Design</span>
-                        <h3>Business Landing Page Design</h3>
-                    </div>
-                </div>
-                <div class="project-card" data-category="uiux">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Project 3">
-                    <div class="info">
-                        <span>UI/UX</span>
-                        <h3>Mobile App Prototype</h3>
-                    </div>
-                </div>
-                <div class="project-card" data-category="app">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Project 4">
-                    <div class="info">
-                        <span>App Design</span>
-                        <h3>Social Media App UI</h3>
-                    </div>
-                </div>
-                <div class="project-card" data-category="graphic">
-                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Project 5">
-                    <div class="info">
-                        <span>Graphic Design</span>
-                        <h3>Brand Identity Pack</h3>
-                    </div>
-                </div>
-            </div>
+<!-- Projects -->
+<section id="projects" class="observer">
+    <div class="container">
+        <div class="section-title">
+            <h2>Meus Projetos</h2>
+            <p>Uma seleção dos meus trabalhos mais recentes e impactantes</p>
         </div>
-    </section>
+        <div class="filter-buttons">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="uiux">UI/UX</button>
+            <button data-filter="web">Web Development</button>
+            <button data-filter="app">App Development</button>
+      
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-category="web">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Project 1">
+                <div class="info">
+                    <span>SGA</span>
+                    <h3>Sistema De Gestão De Atividades</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="app">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 2">
+                <div class="info">
+                    <span>Event Connect</span>
+                    <h3>Sistema De Busca e Reserva De Salões De Eventos</h3>
+                </div>
+            </div>
+            <div class="project-card" data-category="uiux">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Project 3">
+                <div class="info">
+                    <span>Singularity</span>
+                    <h3>Sistema De Gestão e Busca De Vagas De Emprego</h3>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
-    <!-- Resume -->
-  <!-- Resume -->
+<!-- Resume -->
 <section id="resume" class="rn-resume-area">
     <div class="container">
         <div class="section-title">
-            <span class="subtitle">6+ Anos de Experiência</span>
+            <span class="subtitle">2+ Anos de Experiência</span>
             <h2 class="title">Meu Resumo</h2>
         </div>
         <div class="row mt--45">
@@ -864,21 +203,10 @@
                                                     <div class="heading">
                                                         <div class="title">
                                                             <h4>Licenciatura em Informática</h4>
-                                                            <span>Universidade Eduardo Mondlane (2022 - 2025)</span>
+                                                            <span>Universidade Eduardo Mondlane – Maputo, Moçambique (Conclusão prevista: 2025)</span>
                                                         </div>
                                                     </div>
-                                                    <p>Formação abrangente em desenvolvimento de software, banco de dados e engenharia de sistemas.</p>
-                                                </div>
-                                            </div>
-                                            <div class="resume-single-list">
-                                                <div class="inner">
-                                                    <div class="heading">
-                                                        <div class="title">
-                                                            <h4>Especialização em UX/UI Design</h4>
-                                                            <span>Coursera (2021 - 2022)</span>
-                                                        </div>
-                                                    </div>
-                                                    <p>Certificação em design de experiência do usuário e interfaces modernas.</p>
+                                                    <p>Estudante finalista da Licenciatura em Informática com formação em desenvolvimento de software, banco de dados e engenharia de sistemas.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -889,68 +217,69 @@
                     </div>
 
                     <!-- Habilidades Profissionais -->
-                    <div class="tab-pane fade" id="professional" role="tabpanel">
-                        <div class="personal-experience-inner mt--40">
-                            <div class="row row--40">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="progress-wrapper">
-                                        <div class="content">
-                                            <h4 class="maintitle">Habilidades de Design</h4>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">PHOTOSHOP <span>80%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="80%" style="width: 80%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">FIGMA <span>90%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="90%" style="width: 90%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">UI/UX DESIGN <span>93%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="93%" style="width: 93%"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="progress-wrapper">
-                                        <div class="content">
-                                            <h4 class="maintitle">Habilidades Desenvolvimento</h4>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">HTML/CSS <span>95%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="95%" style="width: 95%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">JAVASCRIPT <span>85%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="85%" style="width: 85%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">REACT + NODE <span>88%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="88%" style="width: 88%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-charts">
-                                                <h6 class="heading-h6">JAVA <span>87%</span></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="87%" style="width: 87%"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Habilidades Profissionais -->
+<!-- Habilidades Profissionais -->
+<div class="tab-pane fade" id="professional" role="tabpanel">
+  <div class="personal-experience-inner mt--40">
+    <div class="row row--40">
+
+      <!-- Competências Técnicas com Radar Chart -->
+      <!-- Competências Técnicas com Radar Chart corrigido -->
+<div class="col-lg-6 col-md-6 col-12">
+  <div class="progress-wrapper">
+    <div class="content" style="height: 520px; max-height: 520px; overflow: hidden;">
+      <h4 class="maintitle">Competências Técnicas</h4>
+      <canvas id="skillsRadar" style="width: 100%; height: 100%;"></canvas>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Outros conhecimentos e interesses em lista simples -->
+   <!-- Outros Conhecimentos com Barras Animadas e Ícones 
+<div class="progress-wrapper">
+  <div class="content">
+    <h4 class="maintitle">Outros Conhecimentos</h4>
+
+    <div class="custom-skill-bar">
+      <div class="skill-icon"><i class="fas fa-brain"></i></div>
+      <div class="skill-info">
+        <span>IA Integrada</span>
+        <div class="animated-bar"><div class="bar-fill" style="width: 20%;"></div></div>
+      </div>
+    </div>
+
+    <div class="custom-skill-bar">
+      <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+      <div class="skill-info">
+        <span>Git</span>
+        <div class="animated-bar"><div class="bar-fill" style="width: 85%;"></div></div>
+      </div>
+    </div>
+
+    <div class="custom-skill-bar">
+      <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+      <div class="skill-info">
+        <span>APIs REST</span>
+        <div class="animated-bar"><div class="bar-fill" style="width: 80%;"></div></div>
+      </div>
+    </div>
+
+    <div class="custom-skill-bar">
+      <div class="skill-icon"><i class="fab fa-windows"></i></div>
+      <div class="skill-info">
+        <span>Windows OS</span>
+        <div class="animated-bar"><div class="bar-fill" style="width: 75%;"></div></div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+    </div>
+  </div>
+</div>
+
 
                     <!-- Experiências -->
                     <div class="tab-pane fade" id="experience" role="tabpanel">
@@ -963,22 +292,31 @@
                                                 <div class="inner">
                                                     <div class="heading">
                                                         <div class="title">
-                                                            <h4>Desenvolvimento Sistema de Gestão de Academia</h4>
-                                                            <span>2023 - Projeto Autônomo</span>
+                                                            <h4>Estagiária em Desenvolvimento Web</h4>
+                                                            <span>Explicador Inc — Maputo, Moçambique (Julho 2024 – Presente)</span>
                                                         </div>
                                                     </div>
-                                                    <p>Criação de um sistema completo para gestão de academia com controle de membros, agendamentos e financeiro.</p>
+                                                    <ul>
+                                                        <li>Desenvolvimento de aplicações web com Laravel</li>
+                                                        <li>Apoio em tarefas de backend utilizando PHP e Node.js</li>
+                                                        <li>Apoio na modelagem e administração de bases de dados relacionais</li>
+                                                    </ul>
                                                 </div>
                                             </div>
+                                            <br>
                                             <div class="resume-single-list">
                                                 <div class="inner">
                                                     <div class="heading">
                                                         <div class="title">
-                                                            <h4>Desenvolvimento Web Loja de Sapatos & Chinelos</h4>
-                                                            <span>2024-2025 - Projeto Comercial</span>
+                                                            <h4>Monitora Universitária – Disciplina de TCI</h4>
+                                                            <span>Faculdade de Geologia (2025 – Presente)</span>
                                                         </div>
                                                     </div>
-                                                    <p>E-commerce completo com carrinho de compras, sistema de pagamento e painel administrativo.</p>
+                                                    <ul>
+                                                        <li>Apoio pedagógico a estudantes do curso de Informática</li>
+                                                        <li>Elaboração e correção de exercícios e atividades práticas</li>
+                                                        <li>Suporte técnico em aulas teóricas e laboratoriais</li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -993,241 +331,116 @@
     </div>
 </section>
 
-
-
-   <!-- Pricing -->
+<!-- Pricing -->
 <section id="pricing" class="container">
   <div class="section-title">
     <h2>Planos de Serviços</h2>
     <p>Soluções personalizadas para cada necessidade do seu negócio</p>
   </div>
   <ul class="pricing-tabs" id="myTab">
-  <li><a href="#" class="active" data-tab="mkt">MKT</a></li>
+  <li><a href="#" class="active" data-tab="mkt">Análise Sistemas</a></li>
   <li><a href="#" data-tab="dev">Dev</a></li>
-  <li><a href="#" data-tab="design">UX/UI Design</a></li>
+  <li><a href="#" data-tab="design">Gestão de BD</a></li>
 </ul>
 
   <div class="tab-content" id="myTabContent">
     <div id="mkt" class="tab-pane active">
       <div class="rn-pricing">
-        <h2>Consultoria em Marketing Digital</h2>
-        <p>Desenvolvemos estratégias de marketing digital personalizadas para aumentar sua presença online, gerar leads qualificados e impulsionar suas vendas...</p>
+        <h2>Consultoria de Sistemas</h2>
+       <p>
+        Auxílio estratégico na análise, estruturação e melhoria de sistemas informáticos. 
+        Ofereço suporte desde o levantamento de requisitos até o desenho funcional e técnico, garantindo que as soluções estejam alinhadas com os objetivos do seu negócio.
+      </p>
       </div>
     </div>
     <div id="dev" class="tab-pane">
       <div class="rn-pricing">
-        <h2>Desenvolvimento de Sistemas Web</h2>
-        <p>Soluções web completas e escaláveis, desde sites institucionais até sistemas complexos. Utilizamos as tecnologias mais modernas...</p>
-      </div>
+        <h2>Desenvolvimento de Sistemas</h2>
+         <p>
+        Criação de aplicações modernas, eficientes e escaláveis para web ou dispositivos móveis. 
+        Desde sites institucionais até sistemas personalizados de gestão, utilizo tecnologias como Laravel, React, Vue.js, Node.js e muito mais para entregar soluções funcionais e intuitivas.
+      </p>
     </div>
     <div id="design" class="tab-pane">
       <div class="rn-pricing">
-        <h2>Design de Interfaces UX/UI</h2>
-        <p>Criação de interfaces intuitivas e visualmente impressionantes que melhoram a experiência do usuário e aumentam as conversões...</p>
+        <h2>Administração de BD</h2>
+         <p>
+        Gestão eficiente de bancos de dados relacionais (MySQL, Oracle) com foco em integridade, segurança e performance. 
+        Realizo modelagem, manutenção, backups, consultas otimizadas e boas práticas para garantir a estabilidade das suas informações.
+      </p>
       </div>
     </div>
   </div>
 </section>
 
-
-    <!-- Testimonials -->
-    <section id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Testimonials</h2>
-                <p>O que meus clientes dizem sobre meu trabalho</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Cliente 1">
-                    <div class="testimonial-content">
-                        <p>"Fawzi transformou completamente nosso e-commerce. O design intuitivo que ele criou aumentou nossas conversões em 40%. Profissionalismo e criatividade excepcionais!"</p>
-                        <div class="author">Maria Silva - CEO da FashionStore</div>
-                    </div>
-                </div>
-            </div>
-            <div class="dots">
-                <span class="active" data-index="0"></span>
-                <span data-index="1"></span>
-                <span data-index="2"></span>
-            </div>
+<!-- Testimonials -->
+<section id="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Depoimentos</h2>
+            <p>O que meus clientes dizem sobre meu trabalho</p>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Vamos Trabalhar Juntos</h2>
-                <p>Pronto para transformar suas ideias em realidade? Entre em contato!</p>
-            </div>
-            <form class="contact-form">
-                <input type="email" placeholder="Enter Your Email" required />
-                <button type="submit">Contact Me</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-nav">
-                <a href="#">Home</a>
-                <a href="#about">About Me</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Projects</a>
-                <a href="#resume">Resume</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-dribbble"></i></a>
-            </div>
-            <p>&copy; 2025 FawziUiUx. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Testimonials Carousel
-        const testimonials = [
-            {
-                img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-                quote: "Fawzi transformou completamente nosso e-commerce. O design intuitivo que ele criou aumentou nossas conversões em 40%. Profissionalismo e criatividade excepcionais!",
-                author: "Maria Silva - CEO da FashionStore"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
-                quote: "O aplicativo que o Fawzi desenvolveu superou todas as nossas expectativas. Sua atenção aos detalhes e compreensão das necessidades do usuário foram impressionantes.",
-                author: "Carlos Mendes - CTO da TechSolutions"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-                quote: "Contratei o Fawzi para redesign da nossa marca e fiquei maravilhado com o resultado. Ele capturou perfeitamente a essência da nossa empresa em sua proposta visual.",
-                author: "Roberto Almeida - Fundador da BrandVision"
-            }
-        ];
-
-        const testimonialCard = document.querySelector('.testimonial-card');
-        const dots = document.querySelectorAll('.dots span');
-        let currentIndex = 0;
-        
-        function updateTestimonial(index) {
-            const testimonial = testimonials[index];
-            testimonialCard.innerHTML = `
-                <img src="${testimonial.img}" alt="Cliente ${index+1}">
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Cliente 1">
                 <div class="testimonial-content">
-                    <p>"${testimonial.quote}"</p>
-                    <div class="author">${testimonial.author}</div>
+                    <p>"Fawzi transformou completamente nosso e-commerce. O design intuitivo que ele criou aumentou nossas conversões em 40%. Profissionalismo e criatividade excepcionais!"</p>
+                    <div class="author">Maria Silva - CEO da FashionStore</div>
                 </div>
-            `;
-            
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-            currentIndex = index;
-        }
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => updateTestimonial(index));
-        });
-        
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % testimonials.length;
-            updateTestimonial(currentIndex);
-        }, 5000);
-        
-        // Initialize first testimonial
-        updateTestimonial(0);
+            </div>
+        </div>
+        <div class="dots">
+            <span class="active" data-index="0"></span>
+            <span data-index="1"></span>
+            <span data-index="2"></span>
+        </div>
+    </div>
+</section>
 
-        // Projects Filter
-        const filterButtons = document.querySelectorAll('.filter-buttons button');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const filter = button.dataset.filter;
-                
-                // Filter projects
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Vamos Trabalhar Juntos</h2>
+            <p>Pronto para transformar suas ideias em realidade? Entre em contato!</p>
+        </div>
+        <form class="contact-form">
+            <input type="email" placeholder="Introduza seu E-mail" required />
+            <button type="submit">Contacte Me</button>
+        </form>
+    </div>
+</section>
 
-        // Resume Tabs
-       
-
-    // Resume Tabs
-    const resumeTabs = document.querySelectorAll('#myTabs .nav-link');
-    const resumePanes = document.querySelectorAll('.tab-pane');
-    
-    resumeTabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Remove active from all tabs
-            resumeTabs.forEach(t => t.classList.remove('active'));
-            resumePanes.forEach(p => p.classList.remove('show', 'active'));
-
-            // Add active to clicked tab
-            tab.classList.add('active');
-
-            // Show corresponding pane using data-target
-            const targetId = tab.getAttribute('data-target');
-            const targetPane = document.querySelector(targetId);
-            targetPane.classList.add('show', 'active');
-        });
-    });
-
-
-        // Pricing Tabs
-      
-  const pricingTabs = document.querySelectorAll('#myTab a');
-const pricingPanes = document.querySelectorAll('#myTabContent .tab-pane');
-
-pricingTabs.forEach(tab => {
-  tab.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const targetId = tab.getAttribute('data-tab');
-    const target = document.getElementById(targetId);
-
-    // Remove 'active' de todos
-    pricingTabs.forEach(t => t.classList.remove('active'));
-    pricingPanes.forEach(p => p.classList.remove('active'));
-
-    // Adiciona 'active' ao clicado e ao conteúdo
-    tab.classList.add('active');
-    if (target) target.classList.add('active');
-  });
-});
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-nav">
+            <a href="#">Home</a>
+            <a href="#about">Sobre mim</a>
+            <a href="#services">Serviços</a>
+            <a href="#projects">Projectos</a>
+            <a href="#resume">Resumo</a>
+            <a href="#testimonials">Depoimentos</a>
+            <a href="#contact">Contacto</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+        <p>&copy; 2025 @KomekeHub. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
 
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- Botão do WhatsApp flutuante -->
+<a href="https://wa.me/258833858115" class="whatsapp-float" target="_blank" aria-label="Contactar no WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
 </body>
 </html>
