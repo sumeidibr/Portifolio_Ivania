@@ -282,3 +282,45 @@ pricingTabs.forEach(tab => {
     observer.observe(section);
   });
 
+
+  // Barra de progresso no header
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById("scrollProgressBar").style.width = progress + "%";
+  });
+
+
+  // Escrita automatica seccao hero e about
+ 
+  document.addEventListener("DOMContentLoaded", function () {
+    new Typed("#typed-hero", {
+      strings: [
+        "Estudante finalista do curso de Licenciatura em Informática, com experiência prática no desenvolvimento web e forte interesse em administração de bases de dados.",
+       
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+      backDelay: 2000,
+      smartBackspace: true,
+      showCursor: true,
+      cursorChar: "|"
+    });
+
+    new Typed("#typed-about", {
+      strings: [
+        "Estudante finalista do curso de Licenciatura em Informática pela Universidade Eduardo Mondlane, com sólida experiência prática em desenvolvimento web, utilizando tecnologias modernas como Laravel, React e Node.js. Atuo como monitora universitária, auxiliando na formação de novos talentos, e tenho um forte interesse em administração, modelagem e otimização de bases de dados relacionais e não relacionais, buscando sempre aplicar boas práticas e garantir a eficiência dos sistemas.",
+      
+      ],
+      typeSpeed: 45,
+      backSpeed: 25,
+      loop: true,
+      backDelay: 2000,
+      smartBackspace: true,
+      showCursor: true,
+      cursorChar: "|"
+    });
+  });
